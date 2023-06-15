@@ -179,3 +179,63 @@
 
 // console.log(obj.__proto__);
 
+
+
+//map
+
+
+
+// let newArr = myArr.map((value)=>value+1);
+
+// console.log(newArr);
+
+
+
+// //filter
+
+// let filtArr = myArr.filter((value)=>value%2===0);
+
+// console.log(filtArr);
+
+// //reduce
+
+// let reduArr = myArr.reduce((acc,value)=>acc+value);
+// console.log(reduArr);
+
+
+// let myArr = [1,2,3,4,5,6];
+
+// let newArr = myArr.filter((value)=>value%2!=0);
+
+// newArr.length>0?console.log(true):console.log(false)
+
+
+
+
+//eventlisteners
+
+// let colors =["red","green","yellow","blue"];
+
+// let backgroundElement = document.getElementById("container")
+// let btnElement = document.getElementById('btn');
+// let a =0
+
+// console.log(colors.length);
+
+// function changeBackground(){
+//     console.log(a);
+//     if(a>=0&&a<colors.length){
+//         backgroundElement.style.background = colors[a];
+//         a+=1;
+//     }
+//     else{
+//         a=0;
+//     }
+// }
+// btnElement.addEventListener("click",changeBackground);
+
+
+
+//web API's
+
+
