@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form>
+            <label for="bill_amount">
+                How much was your bill Amount?
+            </label>
+            <input id="bill_amount" type="number"/>
+            <br/><br/>
+            <label for="service">
+                How much was your service?
+                <select id="service">
+                    <option value="0">choose an option</option>
+                    <option value=0.3>Outstanding</option>
+                    <option value=0.2>Good</option>
+                    <option value=0.1>Bad</option>
+                </select>
+            </label>
+            <br/><br/>
+            <label for="people">
+                How many people are sharing the bill?
+                <input type="number" id="people"/>
+            </label>
+            <br/><br/>
+            <button type="button" id="calculate-btn" onclick="calculateBill()">Calculate</button>
+        </form>
+
+        <h3 id="tip_amount"></h3>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
