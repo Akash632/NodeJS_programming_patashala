@@ -180,6 +180,22 @@
 // console.log(obj.__proto__);
 
 
+//brings a new prototype
+
+//and we can reach it by obj.prototype
+
+
+// function person(name){
+//     //this={};
+//     this.name=name;
+//     //return this
+// }
+
+// let obj = new person('Akash');  //creates an object with the function instance
+
+
+
+
 
 //map
 
@@ -236,6 +252,189 @@
 
 
 
-//web API's
+//closures
+
+
+// var a = 10;
+
+// function add(a,b){
+//     return (a+b);
+// }
+// console.log(add(20));   //NaN
+
+
+// function greeting(){
+//     let msg ="Hi";
+
+//     function sayHi(){
+//         console.log(msg);
+//     }
+//     return sayHi;
+// }
+
+
+// var greet = greeting();
+
+// greet();    //prints a Hi. 
+
+// function greeting(msg){
+//     return function adder(token){
+//         return msg+token;
+//     }
+// }
+
+// let hi = greeting("hi");
+
+// console.log(hi("Yo"))    // prints hi Yo
+
+
+
+//call backs
+
+// function process(url){
+//     console.log("Iam processing");
+// }
+
+// function download(fn, url){
+//     console.log("Iam downloading");
+//     fn(url);
+// }
+
+// download(process(),"url");
+
+
+// var myPromise = new Promise((resolve,reject)=>{
+
+//     //computation
+
+//     var success = false;
+//     //success 
+//     if(success){
+//         return resolve("Moon");
+//     }else{
+//         return resolve("Error");
+//     }
+// })
+
+// myPromise.then((resolve)=>console.log(resolve))
+// .catch((err)=>console.log(err))
+// .finally(()=>{console.log('Promise completed')});
+
+
+// let p = new Promise((res,rej)=>{
+//     setTimeout(()=>{
+//         res(10);
+//     },3*100)
+// })
+
+// p.then((res)=>{
+//     console.log(res);
+//     return res*2}
+// ).then((res)=>{
+//     console.log(res);
+//     return res*3
+// }).then((res)=>{
+//     console.log(res);
+//     return res*4;
+// })
+
+// p.then((res)=>{
+//     console.log(res);
+//     return res*2;
+// })
+// p.then((res)=>{
+//     console.log(res);
+//     return res*2;
+// })
+// p.then((res)=>{
+//     console.log(res);
+//     return res*2;
+// })
+
+
+// var totalFun = 3;
+// var completedFun = 0;
+// var numArray = [];
+
+// let p1 = new Promise((res,rej)=>{
+//     setTimeout(()=>{
+//         res(10);
+//         // numArray.push(10);
+//         // checkMyArray(numArray);
+//     },3*100)
+// })
+
+// let p2 = new Promise((res,rej)=>{
+//     setTimeout(()=>{
+//         res(20);
+//         // numArray.push(20);
+//         // checkMyArray(numArray);
+//     },3*200)
+// })
+
+// let p3 = new Promise((res,rej)=>{
+//     setTimeout(()=>{
+//         res(30);
+//         // numArray.push(30);
+//         // checkMyArray(numArray);
+//     },3*300)
+// })
+
+
+// function checkMyArray(numArray){
+//     if(numArray!=null && numArray!=undefined){
+//         if(numArray.length===totalFun){
+//             console.log(numArray);
+//         }
+//     }
+// }
+
+
+
+//shortcut of this top process
+
+// let myFinalPromise = Promise.all([p1,p2,p3]);
+
+// myFinalPromise.then((result)=>console.log(result))
+// .catch((err)=>console.log(err));
+
+
+
+let myStr = 'abcde';
+
+let strLen = myStr.length;
+
+let num = 1
+
+let input = false ;
+
+if(input === true){
+    let subStr = myStr.substring(strLen,num+1);
+    let strPiece = myStr.slice(0,num+1);
+
+    console.log(subStr);
+    let newStr = subStr+strPiece;
+    console.log(newStr);
+}
+else if(input === false){
+    let subStr = myStr.substring(0,num+1);
+    let strPiece = myStr.slice(strLen,2);
+
+    console.log(subStr);
+    console.log(strPiece);
+    let newStr = subStr+strPiece;
+    console.log(newStr);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
