@@ -400,34 +400,66 @@
 
 
 
-let myStr = 'abcde';
+// let myStr = 'abcde';
 
-let strLen = myStr.length;
+// let strLen = myStr.length;
 
-let num = 1
+// let num = 1
 
-let input = false ;
+// let input = false ;
 
-if(input === true){
-    let subStr = myStr.substring(strLen,num+1);
-    let strPiece = myStr.slice(0,num+1);
+// if(input === true){
+//     let subStr = myStr.substring(strLen,num+1);
+//     let strPiece = myStr.slice(0,num+1);
 
-    console.log(subStr);
-    let newStr = subStr+strPiece;
-    console.log(newStr);
-}
-else if(input === false){
-    let subStr = myStr.substring(0,num+1);
-    let strPiece = myStr.slice(strLen,2);
+//     console.log(subStr);
+//     let newStr = subStr+strPiece;
+//     console.log(newStr);
+// }
+// else if(input === false){
+//     let subStr = myStr.substring(0,num+1);
+//     let strPiece = myStr.slice(strLen,2);
 
-    console.log(subStr);
-    console.log(strPiece);
-    let newStr = subStr+strPiece;
-    console.log(newStr);
-}
+//     console.log(subStr);
+//     console.log(strPiece);
+//     let newStr = subStr+strPiece;
+//     console.log(newStr);
+// }
+
+
+// var p1 = async()=>{
+//     await result(1000);
+//     return 10;
+// }
+
+// var p2 = async()=>{
+//     await result(2000);
+//     return 20;
+// }
+
+// var p3 = async()=>{
+//     await result(3000);
+//     return 30;
+// }
 
 
 
+// var result = async (time)=>{
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(resolve,time);
+//     })
+// }
+
+// var fun = async()=>{
+//     var ans = await p1();
+//     console.log(ans);
+//     var ans2 = await p2();
+//     console.log(ans2);
+//     var ans3 = await p3();
+//     console.log(ans3);
+// }
+
+// fun()
 
 
 
