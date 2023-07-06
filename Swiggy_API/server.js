@@ -8,7 +8,7 @@ app.use(cors());
  
 let db;
  
-MongoClient.connect('').then((client) => {
+MongoClient.connect('mongodb://127.0.0.1:27017/restraunts').then((client) => {
     console.log("connected to DB server");
     db = client.db('food-delivery-db');
 }).catch((err) => {
@@ -95,25 +95,68 @@ app.get('/getRestaurant', async (req, res) => {
             res.json({ message: 'All the Restaurant', data });
         } else if (food) {
             result.forEach(eachResto => {
-                eachResto.foodItems["veg"].forEach((foodItem) => {
-                    if (foodItem.name == food) {
-                        data.push(eachResto);
-                    }
-                });
-                eachResto.foodItems["non-veg"].forEach((foodItem) => {
-                    if (foodItem.name == food) {
-                        data.push(eachResto);
-                    }
-                });
+                // eachResto.foodItems["veg"].forEach((foodItem) => {
+                //     if (foodItem.name == food) {
+                //         data.push(eachResto);
+                //     }
+                // });
+                // eachResto.foodItems["non-veg"].forEach((foodItem) => {
+                //     if (foodItem.name == food) {
+                //         data.push(eachResto);
+                //     }
+                // });
+                for (const key in eachResto.foodItems) {
+                    eachResto.foodItems[`${key}`].forEach((foodItem) => {
+                        if (foodItem.name == food) {
+                            data.push(eachResto);
+                        }
+                    });
+                }
             });
             res.json({ message: 'All the Restaurant', data });
         } else if (id) {
+            result.forEach(eachResto => {
+                const resto_id = (eachResto._id).toString();
+                if (id == resto_id) {
+                    data.push(eachResto);
+                }
+            })
             res.json({ message: 'All the Restaurant', data });
+        } else {
+            res.json({ message: 'All the Restaurant', result });
         }
     } else {
         res.json({ message: 'No Any Restaurant available' });
     }
 })
+ 
+// we have to add -> orderedOn:Date.now()
+app.post('/addOrder', async (req, res) => {
+    const orderDetails = req.body;
+    if (orderDetails) {
+        const order = {
+            ...orderDetails,
+            orderedOn: Date.now(),
+            orderStatus: 'ORDER_PLACED'
+        };
+        let result = await db.collection('orders').insertOne(order);
+        const OrderId = result.insertedId.toString();
+        res.json({ message: `Order placed successfully, Your OrderId is ${OrderId}` });
+    } else {
+        res.json({ message: 'please add food in cart' })
+    }
+});
+ 
+app.get('/getOrders', async (req, res) => {
+    const { email } = req.query;
+    if (email) {
+        const result = await db.collection('orders').find({ email }).sort({ orderedOn: -1 }).toArray();
+        res.json({ message: result });
+    } else {
+        res.json({ message: 'email doesn\'t exist' });
+    }
+})
+
  
  
  
